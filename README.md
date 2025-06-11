@@ -11,7 +11,7 @@ This compact and effective system ensures secure, biometric-based access control
 
 ---
 
-## ⚙️ Hardware Components
+## Hardware Components
 
 | Component              | Description                      |
 |------------------------|----------------------------------|
@@ -27,7 +27,7 @@ This compact and effective system ensures secure, biometric-based access control
 
 ---
 
-## 🔌 Pin Configuration
+## Pin Configuration
 
 | Component          | ESP32 Pin | Function               |
 |-------------------|-----------|------------------------|
@@ -43,7 +43,7 @@ This compact and effective system ensures secure, biometric-based access control
 
 ---
 
-## 📦 Library Dependencies
+## Library Dependencies
 
 Ensure these libraries are installed via Arduino Library Manager:
 
@@ -54,7 +54,7 @@ Ensure these libraries are installed via Arduino Library Manager:
 
 ---
 
-## ▶️ Working of the Project
+## Working of the Project
 
 1. **System Boot**:  
    On power-up, the ESP32 connects all peripherals and checks for the fingerprint sensor. The OLED displays initial system messages.
@@ -85,7 +85,7 @@ Ensure these libraries are installed via Arduino Library Manager:
 
 ---
 
-## 💻 Serial Monitor Commands
+## Serial Monitor Commands
 
 | Command         | Description                                      |
 |-----------------|--------------------------------------------------|
@@ -110,7 +110,7 @@ Ensure these libraries are installed via Arduino Library Manager:
 
 ---
 
-## 📍 Applications
+##  Applications
 
 - Smart Door Lock Systems  
 - Lab or Workspace Access  
@@ -119,13 +119,13 @@ Ensure these libraries are installed via Arduino Library Manager:
 
 ---
 
-## 🔒 License
+## License
 
 This project is open-source and licensed under the MIT License.
 
 ---
 
-## 🙌 Acknowledgements
+## Acknowledgements
 
 Built as part of an embedded systems project focusing on secure, user-friendly access control solutions using ESP32.
 
