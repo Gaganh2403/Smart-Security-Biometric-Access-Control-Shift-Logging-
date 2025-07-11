@@ -1,132 +1,71 @@
-# Smart-Security-Biometric-Access-Control-Shift-Logging-
- -ESP32 Smart Fingerprint Access Control System
+<h1 align="center">🔐 Smart Fingerprint-Based Security System</h1>
 
-A smart door security system built using the **ESP32**, integrating:
-- R305 Fingerprint Sensor for identity verification
-- SG90 Servo Motor for physical door control
-- OLED display for real-time access status
-- Buzzer and LEDs for immediate feedback
-
-This compact and effective system ensures secure, biometric-based access control suitable for smart homes, labs, and restricted areas.
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-ESP32-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Connectivity-WiFi-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Firebase-Connected-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/OLED-Display-black?style=for-the-badge">
+</p>
 
 ---
 
-## Hardware Components
+## 📸 Project Overview
 
-| Component              | Description                      |
-|------------------------|----------------------------------|
-| ESP32 Dev Board        | Main microcontroller             |
-| R305 Fingerprint Sensor| Biometric verification           |
-| SG90 Servo Motor       | Controls the door mechanism      |
-| OLED Display (I2C)     | 0.96" 128x64, SSD1306 compatible |
-| Buzzer                 | Audio alert                      |
-| Red LED                | Denied status indicator          |
-| Green LED              | Granted status indicator         |
-| Jumper Wires           | For connections                  |
-| Breadboard / PCB       | For setup layout                 |
+A **Smart Security System** built using an **ESP32 microcontroller**, a **fingerprint sensor**, and **Wi-Fi-enabled real-time logging**. The system records access logs to **Firebase** and offers an **Admin Dashboard** for live monitoring of access attempts.
+
+> 💡 Designed for secure and contactless door access, with visual feedback via OLED display and centralized logging via Firebase.
 
 ---
 
-## Pin Configuration
+## 🧰 Features
 
-| Component          | ESP32 Pin | Function               |
-|-------------------|-----------|------------------------|
-| **OLED SDA**       | GPIO 22   | I2C data               |
-| **OLED SCL**       | GPIO 21   | I2C clock              |
-| **Fingerprint TX** | GPIO 14   | Connects to ESP32 RX2  |
-| **Fingerprint RX** | GPIO 12   | Connects to ESP32 TX2  |
-| **Red LED**        | GPIO 25   | Output (access denied) |
-| **Green LED**      | GPIO 32   | Output (access granted)|
-| **Buzzer**         | GPIO 26   | Output (buzzer)        |
-| **Servo Motor**    | GPIO 18   | PWM signal to servo    |
-
+✅ Fingerprint-based secure access  
+✅ OLED display for real-time status updates  
+✅ Real-time logging using Firebase  
+✅ Admin Dashboard for live access log monitoring  
+✅ Green/Red LED indicators for access feedback  
+✅ Buzzer for audible access confirmation  
+✅ Fingerprint enrollment via Serial Monitor  
+✅ Manual input simulation mode for testing
 
 ---
 
-## Library Dependencies
+## 🧠 System Boot Process
 
-Ensure these libraries are installed via Arduino Library Manager:
-
-- **Adafruit Fingerprint Sensor Library**
-- **Adafruit SSD1306**
-- **Adafruit GFX Library**
-- **ESP32Servo**
+- 🔌 On boot:
+  - ESP32 connects to the configured Wi-Fi network
+  - Initializes fingerprint sensor, OLED display, buzzer, LEDs, and servo motor
+  - OLED shows: `Smart Security System`
 
 ---
 
-## Working of the Project
+## 👆 Fingerprint Detection Workflow
 
-1. **System Boot**:  
-   On power-up, the ESP32 connects all peripherals and checks for the fingerprint sensor. The OLED displays initial system messages.
+1. ✅ **If a fingerprint match is found:**
+   - OLED shows:
+     ```
+     Matched ID
+     Access Granted
+     ```
+   - Green LED turns ON  
+   - Buzzer sounds  
+   - Servo unlocks the door (rotates)
+   - Fingerprint ID + timestamp sent to Firebase
+   - After a short delay, servo locks the door again
 
-2. **Fingerprint Detection**:  
-   The system continuously waits for a finger to be placed on the sensor.
-
-3. **Matching Process**:  
-   - If a stored fingerprint is matched:
-     - OLED displays: **"Access Granted: Opening Door"**
-     - Green LED turns on
-     - Buzzer sounds
-     - Servo rotates to unlock (open) the door
-     - After a delay, the servo returns to the locked position, and the system resets
-   - If no match is found:
-     - OLED displays: **"No Match Found"**
-     - Red LED turns on briefly
-
-4. **Enrollment Mode (via Serial Monitor)**:
-   - Command `enroll <id>` is used to add a new fingerprint.
-   - The system guides the user through placing the same finger twice.
-   - Upon successful enrollment, the fingerprint is stored under the given ID.
-
-5. **Input Mode for Testing (Optional)**:
-   - Send `input` via Serial Monitor to enter manual test mode.
-   - You can simulate actions with commands like `p1`, `p2`, etc.
-   - Use `exit` to return to normal fingerprint mode.
+2. ❌ **If no fingerprint match is found:**
+   - OLED shows:
+     ```
+     No Match Found
+     Access Denied
+     ```
+   - Red LED flashes
 
 ---
 
-## Serial Monitor Commands
+## 🧑‍💻 Enrollment Mode (via Serial Monitor)
 
-| Command         | Description                                      |
-|-----------------|--------------------------------------------------|
-| `input`         | Enters manual input mode                         |
-| `p<number>`     | Simulates a fingerprint match (for testing)      |
-| `exit`          | Exits manual input mode                          |
-| `enroll <id>`   | Enrolls a new fingerprint with specified ID      |
+### How to Enroll a Fingerprint:
 
----
-
-## 📷 System Overview
-
-      +------------------------+
-      |        ESP32           |
-      +------------------------+
-        |       |        |
-     OLED    Fingerprint   Servo
-    (I2C)     Sensor       Motor
-       \         |          /
-    Buzzer   Red/Green LEDs
-
-
----
-
-##  Applications
-
-- Smart Door Lock Systems  
-- Lab or Workspace Access  
-- Biometric Attendance Systems  
-- DIY Security Projects  
-
----
-
-## License
-
-This project is open-source and licensed under the MIT License.
-
----
-
-## Acknowledgements
-
-Built as part of an embedded systems project focusing on secure, user-friendly access control solutions using ESP32.
-
-
+1. 🔐 **Open Serial Monitor** (baud: `115200`)  
+2. 💬 **Type the command:**  
