@@ -25,9 +25,9 @@ Adafruit_Fingerprint finger(&mySerial);
 // === Servo & Peripherals ===
 Servo doorServo;
 const int servoPin = 18;
-const int greenLEDPin = 32;  // OK
-const int redLEDPin = 25;    // Changed from 35
-const int buzzerPin = 26;    // Changed from 34
+const int greenLEDPin = 32;  
+const int redLEDPin = 25;    
+const int buzzerPin = 26;    
 
 bool inputMode = false;
 
