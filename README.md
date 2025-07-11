@@ -70,7 +70,7 @@ The system allows secure fingerprint registration through the Serial Monitor, en
 ### 👣 How to Enroll a Fingerprint:
 
 1. 🔐 **Open Serial Monitor** (baud: `115200`)  
-2. 💬 **Type the command:**
+2. 💬 **Type the command:*input*
 
 3. 🛠️ **The system will prompt:**
 - 👉 *Place finger...*
